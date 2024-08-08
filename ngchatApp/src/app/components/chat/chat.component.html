@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <h3 class="d-flex justify-content-center align-items-center text-light" style="height: 100vh;">WelCome To My Chat Application
+  </h3>
+  <div class="row mt-4 chatbox" [ngClass]="prop" [hidden]="!show">
+    <div class="col-sm-4">
+      <div style="height: 500px;overflow-y: scroll" class="content">
+        <h3 class="text-center mt-2">Chat Box</h3>
+        <div *ngFor="let item of msglist">
+          <div class="list-group" *ngIf="item.type == 'receiver'" style="margin-left: 50%;">
+            <div class="lst">
+              <p *ngIf="item.type == 'sender'" style="background: #dcf8c8;
+      padding: 5px;word-wrap: break-word; margin: 10px;width: 40%;border-radius: 10px;position: relative;"
+                class="mb-3 text-success">
+                {{item.msg}} <span
+                  style="font-size: xx-small;margin-top: 10px;position: absolute;right: 5px;">{{item.time}}</span> </p>
+              <p *ngIf="item.type == 'receiver'" style="background: #ffffff;
+                padding: 5px;word-wrap: break-word;margin: 10px;width: 90%;border-radius: 10px;position: relative;"
+                class="mb-3 text-danger">
+                {{item.msg}} <span
+                  style="font-size: xx-small;position: absolute;right: 5px;bottom: 5px;">{{item.time}}</span></p>
+            </div>
+          </div>
+          <div class="list-group" *ngIf="item.type == 'sender'">
+            <div class="lst">
+              <p *ngIf="item.type == 'sender'" style="background: #dcf8c8;
+      padding: 5px;word-wrap: break-word; margin: 10px;width: 40%;border-radius: 10px;position: relative;"
+                class="mb-3 text-success">
+                {{item.msg}} <span
+                  style="font-size: xx-small;margin-top: 10px;position: absolute;right: 5px;">{{item.time}}</span> </p>
+              <p *ngIf="item.type == 'receiver'" style="background: #ffffff;
+                padding: 5px;word-wrap: break-word;margin: 10px;width: 90%;border-radius: 10px;position: relative;"
+                class="mb-3 text-danger">
+                {{item.msg}} <span
+                  style="font-size: xx-small;position: absolute;right: 5px;bottom: 5px;">{{item.time}}</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form action="">
+        <div class="mb-3 d-flex" style="gap: 10px;">
+          <input type="text" class="form-control" name="msg" [(ngModel)]="msg" aria-describedby="helpId"
+            placeholder="" />
+          <!-- <a class="btn btn-primary" (click)="sendMsg()">SEND</a> -->
+          <fa-icon [size]="'2x'" [icon]="faplane" (click)="sendMsg()"></fa-icon>
+        </div>
+      </form>
+    </div>
+  </div>
+  <fa-icon [size]='"3x"' class="send" (click)="onclick()" [icon]="faCoffee"></fa-icon>
+</div>
