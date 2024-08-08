@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faPaperPlane, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faPaperPlane, faXmark, faMessage } from '@fortawesome/free-solid-svg-icons';
 import { ChatService } from 'src/app/services/chat.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ChatService } from 'src/app/services/chat.service';
 export class ChatComponent implements OnInit {
   msg: string = "";
   msglist: any = [];
-  faCoffee: any = faPaperPlane;
+  faCoffee: any = faMessage;
   faplane = faPaperPlane;
   len = 2;
   show: any = false;
@@ -33,7 +33,7 @@ export class ChatComponent implements OnInit {
     })
   }
   onclick() {
-    this.faCoffee = this.show ? faPaperPlane : faXmark;
+    this.faCoffee = this.show ? faMessage : faXmark;
     this.show = !this.show;
   }
 }
